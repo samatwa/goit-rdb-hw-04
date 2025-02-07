@@ -64,3 +64,14 @@ INSERT INTO borrowed_books (borrow_id, book_id, user_id, borrow_date, return_dat
 VALUES 
 	(1,	1,	101, '2025-02-01', '2025-02-15'),
 	(2,	2,	102, '2025-02-05', '2025-02-19');
+3)
+USE mydb;
+SELECT *
+FROM orders
+INNER JOIN customers on orders.customer_id = customers.id
+INNER JOIN employees on orders.employee_id = employees.employee_id
+INNER JOIN shippers on orders.shipper_id = shippers.id
+INNER JOIN order_details AS od on od.order_id = orders.id
+INNER JOIN products on od.product_id = products.id
+INNER JOIN categories on products.category_id = categories.id
+INNER JOIN suppliers on products.supplier_id = suppliers.id;
